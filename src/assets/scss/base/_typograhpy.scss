@@ -1,0 +1,40 @@
+@font-face {
+  font-family: "Main";
+  src: url('../../fonts/Rubik/Rubik-Regular.ttf');
+}
+
+html {
+    font-size: 10px;
+}
+
+body {
+  font-size: $main-fs;  
+  font-family: "Main";
+}
+
+.top-offers {
+  &__title {
+    font-size: 3.8rem;
+    font-weight: 600;
+
+    @include mobile {
+      font-size: 2.6rem;
+    }
+  }
+
+  &__item-title {
+    font-size: 2.5rem;
+    font-weight: 600;
+
+    @include mobile {
+      font-size: 2rem;
+    }
+  }
+}
+
+.services {
+  &__item-title {
+    font-size: 1.8rem;
+    font-weight: 600;
+  }
+}

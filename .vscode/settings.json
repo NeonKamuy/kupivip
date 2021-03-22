@@ -1,0 +1,5 @@
+{
+    "html.format.wrapLineLength": 10000,
+    "html.format.wrapAttributes": "preserve",
+    "editor.tabSize": 2
+}

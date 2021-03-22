@@ -1,0 +1,26 @@
+.carousel {
+    &__arrow {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 55px;
+        height: 55px;
+        border-radius: 50%;
+        border: 1px solid $line;
+        box-shadow: 0 3px 8px rgba(0,0,0,0);
+        transition: .2s ease;
+
+        img {
+            width: 20px;
+            height: 20px;
+        }
+
+        &:hover {
+            box-shadow: 0 3px 10px rgba(0,0,0,.1);
+        }
+    }
+
+    .disabled {
+        display: none;
+    }
+}

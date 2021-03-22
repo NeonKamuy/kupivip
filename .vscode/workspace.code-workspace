@@ -1,0 +1,13 @@
+{
+	"folders": [
+		{
+			"path": ".."
+		}
+	],
+	"settings": {
+		"html.format.wrapLineLength": 10000,
+		"html.format.wrapAttributes": "preserve",
+		"editor.tabSize": 2,
+		"prettier.useTabs": true
+	}
+}

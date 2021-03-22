@@ -1,0 +1,90 @@
+.footer {
+    background: $dark;
+    color: $secondary-color;
+
+    &__header {
+        padding: 3rem 0;
+    }
+
+    &__logo {
+        svg {
+          width: 200px;
+          height: 55px;
+          fill: $main-color;
+        }
+    }
+
+    &__navs-wrapper {
+        display: flex;
+
+        @include mobile {
+            flex-wrap: wrap;
+        }
+    }
+
+    &__navs {
+        border-bottom: 1px solid $footer-line;
+        border-top: 1px solid $footer-line;
+        padding: 3rem 0;
+    }
+
+    &__nav {
+        &:not(:last-child) {
+            margin-right: 10rem;
+
+            @include mobile {
+                margin-bottom: 2rem;
+            }
+        }
+    }
+
+    &__nav-title {
+        margin-bottom: 2rem;
+    }
+
+    &__nav-item {
+        &:not(last-child ){
+            margin-bottom: 2rem;
+        }
+    }
+
+    &__nav-link {
+        color:  $main-color;
+        transition: color .3s ease;
+
+        &:hover {
+            color: $secondary-nav-hover;
+        }
+    }
+
+    &__payments-wrapper {
+        display: flex;
+        justify-content: flex-end;
+        align-items: center;
+    }
+
+    &__payments {
+        padding: 3rem 0;
+    }
+
+    &__payments-image {
+        width: 200px;
+
+        img {
+            width: 100%;
+            height: auto;
+        }
+    }
+
+    &__payments-description {
+        max-width: 30rem;
+        margin-left: 3rem;
+        color: $main-color;
+    }
+
+    &__copyright {
+        border-top: 1px solid $footer-line;
+        padding: 3rem 0;
+        text-align: center;
+    }
+}

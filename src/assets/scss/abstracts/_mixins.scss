@@ -1,0 +1,48 @@
+// Media Query Mixins
+@mixin mobile-sm {
+    @media(max-width: $mobile-sm) {
+        @content
+    }
+}
+
+@mixin mobile {
+    @media(max-width: $mobile) {
+        @content
+    }
+}
+
+@mixin tablet-sm {
+    @media(max-width: $tablet-sm ) {
+        @content
+    }
+}
+
+@mixin tablet {
+    @media(max-width: $tablet ) {
+        @content
+    }
+}
+
+@mixin desktop-sm {
+    @media(max-width: $desktop-sm ) {
+        @content
+    }
+}
+
+@mixin desktop-md {
+    @media(max-width: $desktop-md ) {
+        @content
+    }
+}
+
+@mixin desktop-lg {
+    @media(max-width: $desktop-lg ) {
+        @content
+    }
+}
+
+@mixin desktop-xl {
+    @media(max-width: $desktop-xl ) {
+        @content
+    }
+}

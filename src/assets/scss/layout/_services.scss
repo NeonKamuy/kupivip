@@ -1,0 +1,44 @@
+.services {
+    background: $bg-color;
+    color: $dark;
+    padding: 3rem 0;
+
+    &__wrapper {
+        display: flex;
+        justify-content: center;
+
+        @include mobile {
+           flex-wrap: wrap;
+        }
+    }
+
+    &__item {
+        display: flex;
+        flex-direction: column;
+        text-align: center;
+        width: 23%;
+        color: $dark;
+
+        &:not(last-child) {
+            margin: 3rem;
+        }
+
+    
+
+        @include mobile {
+            width: 100%;
+        }
+    }
+
+    &__item-header {
+        margin-bottom: 1rem;
+    }
+
+    &__item-image {
+        margin-bottom: 1rem;
+        img {
+            width: 3.5rem;
+            height: 3.5rem;
+        }
+    }
+}

@@ -1,0 +1,17 @@
+@import './scss/abstracts/variables';
+@import './scss/abstracts/mixins';
+
+@import './scss/base/reset';
+@import './scss/base/typograhpy';
+
+@import './scss/components/buttons';
+@import './scss/components/dropdown';
+@import './scss/components/carousel';
+
+@import './scss/layout/header';
+@import './scss/layout/footer';
+@import './scss/layout/cats';
+@import './scss/layout/containers';
+@import './scss/layout/banner';
+@import './scss/layout/top-offers';
+@import './scss/layout/services';
