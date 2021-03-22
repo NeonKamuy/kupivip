@@ -1,11 +1,21 @@
-import React from "react";
+import React, { useCallback } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import HomePageActions from "../../../../../redux/home-page/actions";
+import { HomePageSelectors } from "../../../../../redux/home-page/selectors";
 
 export const MobileNavQuestions: React.FC<{}> = () => {
+    const questionsClassName = useSelector(HomePageSelectors.getQuestionsClassName);
+
+    const dispatch = useDispatch();
+    const toggleQuestions = useCallback(()=>{
+        dispatch(HomePageActions.toggleQuestions());
+    }, []);
+
     return (
-        <nav className="nav__mobile questions">
+        <nav className={questionsClassName}>
             <header className="nav__mobile-header">
                 <h2 className="nav__mobile-title">Help</h2>
-                <button id="close-questions" className="close">
+                <button id="close-questions" className="close" onClick={toggleQuestions}>
                     <svg id="icon-cross" viewBox="0 0 20 20">
                         <path d="M18.2 20L0 1.7 1.7 0 20 18 18 20z"></path>
                         <path d="M1.7 20L20 1.7 18 0 0 18.2 1.7 20z"></path>

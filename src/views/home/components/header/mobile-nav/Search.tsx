@@ -1,11 +1,21 @@
-import React from "react";
+import React, { useCallback } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import HomePageActions from "../../../../../redux/home-page/actions";
+import { HomePageSelectors } from "../../../../../redux/home-page/selectors";
 
 export const MobileNavSearch: React.FC<{}> = () => {
+    const searchClassName = useSelector(HomePageSelectors.getSearchClassName);
+    
+    const dispatch = useDispatch();
+    const toggleSearch = useCallback(()=>{
+        dispatch(HomePageActions.toggleSearch());
+    }, []);
+
     return (
-        <nav className="nav__mobile search">
+        <nav className={searchClassName}>
             <header className="nav__mobile-header">
                 <h2 className="nav__mobile-title">Поиск товаров и брендов</h2>
-                <button id="close-search" className="close">
+                <button id="close-search" onClick={toggleSearch} className="close">
                     <svg id="icon-cross" viewBox="0 0 20 20">
                         <path d="M18.2 20L0 1.7 1.7 0 20 18 18 20z"></path>
                         <path d="M1.7 20L20 1.7 18 0 0 18.2 1.7 20z"></path>

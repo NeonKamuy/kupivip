@@ -1,15 +1,32 @@
-import React from "react";
+import React, { useCallback } from "react";
+import { useDispatch } from "react-redux";
+import HomePageActions from "../../../../../redux/home-page/actions";
+import { HomePageAction } from "../../../../../redux/home-page/interfaces";
 
 export const HeaderBottomMobile: React.FC<{}> = () => {
+    const dispatch = useDispatch();
+
+    const toggleSearch = useCallback(()=>{
+        dispatch(HomePageActions.toggleSearch());
+    }, []);
+
+    const toggleHamburger = useCallback(()=>{
+        dispatch(HomePageActions.toggleMainHamburger());
+    }, []);
+
+    const toggleQuestions = useCallback(()=>{
+        dispatch(HomePageActions.toggleQuestions());
+    }, []);
+
     return (
         <ul className="header__bottom-mobile-left">
-            <li id="hamburger" className="header__bottom-mobile-left-item" data-for="main">
+            <li id="hamburger" className="header__bottom-mobile-left-item" data-for="main" onClick={toggleHamburger}>
                 <svg
                     xmlns="http://www.w3.org/2000/svg" width="20" height="22" viewBox="0 0 20 22">
                     <g fill-rule="nonzero"> <path d="M0 2V0h20v2zM0 12v-2h20v2zM0 22v-2h20v2z" /> </g>
                 </svg>
             </li>
-            <li id="search" className="header__bottom-mobile-left-item" data-for="search">
+            <li id="search" className="header__bottom-mobile-left-item opened" data-for="search" onClick={toggleSearch}>
                 <svg id="icon-search" viewBox="0 0 20 20">
                     <path
                         d="M16.48 9.18c0-4.02-3.24-7.28-7.24-7.28S2 5.16 2 9.18c0 4.02 3.24 7.28 7.24 7.28s7.24-3.26 7.24-7.28zm-2.43 5.02l4.78 4.5-4.78-4.5z"
@@ -18,7 +35,7 @@ export const HeaderBottomMobile: React.FC<{}> = () => {
                     />
                 </svg>
             </li>
-            <li id="questions" className="header__bottom-mobile-left-item" data-for="questions">
+            <li id="questions" className="header__bottom-mobile-left-item" data-for="questions" onClick={toggleQuestions}>
                 <svg xmlns="http://www.w3.org/2000/svg" width="20" height="22" viewBox="0 0 20 22">
                     <g fill-rule="evenodd">
                         <path
