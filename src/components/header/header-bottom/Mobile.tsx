@@ -1,7 +1,7 @@
 import React, { useCallback } from "react";
 import { useDispatch } from "react-redux";
-import HomePageActions from "../../../../../redux/home-page/actions";
-import { HomePageAction } from "../../../../../redux/home-page/interfaces";
+import HomePageActions from "../../../redux/home-page/actions";
+import { HomePageAction } from "../../../redux/home-page/interfaces";
 
 export const HeaderBottomMobile: React.FC<{}> = () => {
     const dispatch = useDispatch();

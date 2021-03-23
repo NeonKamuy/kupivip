@@ -1,7 +1,7 @@
 import React, { useCallback } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import HomePageActions from "../../../../../redux/home-page/actions";
-import { HomePageSelectors } from "../../../../../redux/home-page/selectors";
+import HomePageActions from "../../../redux/home-page/actions";
+import { HomePageSelectors } from "../../../redux/home-page/selectors";
 
 export const MobileNavQuestions: React.FC<{}> = () => {
     const questionsClassName = useSelector(HomePageSelectors.getQuestionsClassName);

@@ -1,5 +1,5 @@
 import React from "react";
-import { INavItem } from "../constants";
+import { INavItem } from "../../constants";
 
 export const NavItem: React.FC<{ item: INavItem }> = (props) => {
 	const {

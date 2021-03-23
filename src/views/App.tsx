@@ -2,13 +2,17 @@ import React from "react";
 import { Helmet } from "react-helmet";
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 import { Home } from "./home";
+import { Product } from "./product";
 
 const App = () => {
     return (
             <Router>
                 <Switch>
-                    <Route path="/">
+                    <Route path="/" exact>
                         <Home />
+                    </Route>
+                    <Route path="/product" exact>
+                        <Product />
                     </Route>
                 </Switch>
             </Router>
