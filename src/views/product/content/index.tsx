@@ -8,10 +8,10 @@ import { ProductSizePicker } from "./size-picker";
 export const ProductContent:React.FC<{}> = ()=>{
   return (
     <div className="product__container">
-			<div className="product__column">
+			<div className="product__column left">
 				<ReactImageGallery items={GalleryImages} {...ImageGallerySettings} />
 			</div>
-      <div className="product__column">
+      <div className="product__column right">
 				<div className="product__name"><span>Paul & Shark</span></div>
         <div className="product__category"><span>Кофта</span></div>
         <ProductPrice />
