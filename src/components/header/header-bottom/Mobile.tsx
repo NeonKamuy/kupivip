@@ -1,21 +1,21 @@
 import React, { useCallback } from "react";
 import { useDispatch } from "react-redux";
-import HomePageActions from "../../../redux/home-page/actions";
-import { HomePageAction } from "../../../redux/home-page/interfaces";
+import HeaderActions from "../../../redux/header/actions";
+import { HeaderActionType } from "../../../redux/header/interfaces";
 
 export const HeaderBottomMobile: React.FC<{}> = () => {
     const dispatch = useDispatch();
 
     const toggleSearch = useCallback(()=>{
-        dispatch(HomePageActions.toggleSearch());
+        dispatch(HeaderActions.toggleSearch());
     }, []);
 
     const toggleHamburger = useCallback(()=>{
-        dispatch(HomePageActions.toggleMainHamburger());
+        dispatch(HeaderActions.toggleMainHamburger());
     }, []);
 
     const toggleQuestions = useCallback(()=>{
-        dispatch(HomePageActions.toggleQuestions());
+        dispatch(HeaderActions.toggleQuestions());
     }, []);
 
     return (

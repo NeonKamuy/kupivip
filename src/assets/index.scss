@@ -15,3 +15,8 @@
 @import './scss/layout/banner';
 @import './scss/layout/top-offers';
 @import './scss/layout/services';
+
+// Product Page Styles
+@import './scss/pages/product';
+@import './scss/components/product_gallery';
+@import "~react-image-gallery/styles/scss/image-gallery.scss";

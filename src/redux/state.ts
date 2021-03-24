@@ -1,4 +1,4 @@
-import { HomePageInitialState } from "./home-page/state";
+import { HeaderInitialState } from "./header/state";
 
-export const RootState = {...HomePageInitialState};
+export const RootState = {...HeaderInitialState};
 export type IRootState = typeof RootState;

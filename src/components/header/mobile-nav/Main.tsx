@@ -1,13 +1,13 @@
 import React, { useCallback } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import HomePageActions from "../../../redux/home-page/actions";
-import { HomePageSelectors } from "../../../redux/home-page/selectors";
+import HeaderActions from "../../../redux/header/actions";
+import { HeaderSelectors } from "../../../redux/header/selectors";
 
 export const MobileNavMain: React.FC<{}> = () => {
-    const hamburgerClassName = useSelector(HomePageSelectors.getMainHamburgerClassName);
+    const hamburgerClassName = useSelector(HeaderSelectors.getMainHamburgerClassName);
     const dispatch = useDispatch();
     const toggleHamburger = useCallback(()=>{
-        dispatch(HomePageActions.toggleMainHamburger());
+        dispatch(HeaderActions.toggleMainHamburger());
     }, []);
 
     return (

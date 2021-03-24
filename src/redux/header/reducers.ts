@@ -1,28 +1,28 @@
 import { Action } from "redux";
 import {
-	HomePageAction,
-	IHomePageState,
+	HeaderActionType,
+	IHeaderState,
 	IToggleOpenedState,
 } from "./interfaces";
-import { HomePageInitialState } from "./state";
+import { HeaderInitialState } from "./state";
 
-export class HomePageReducer {
+export class HeaderReducer {
 	public static reduce(
-		state = HomePageInitialState as IHomePageState,
+		state = HeaderInitialState as IHeaderState,
 		action: Action
-	): IHomePageState {
+	): IHeaderState {
 		switch (action.type) {
-			case HomePageAction.toggleMainHamburger:
+			case HeaderActionType.toggleMainHamburger:
 				return this.toggleOpenedAction(
-					state, action.type, state[HomePageAction.toggleMainHamburger]
+					state, action.type, state[HeaderActionType.toggleMainHamburger]
 				);
-			case HomePageAction.toggleSearch:
+			case HeaderActionType.toggleSearch:
 				return this.toggleOpenedAction(
-					state, action.type, state[HomePageAction.toggleSearch]
+					state, action.type, state[HeaderActionType.toggleSearch]
 				);
-			case HomePageAction.toggleQuestions:
+			case HeaderActionType.toggleQuestions:
 				return this.toggleOpenedAction(
-					state, action.type, state[HomePageAction.toggleQuestions]
+					state, action.type, state[HeaderActionType.toggleQuestions]
 				)
 			default: {
 				return state;
@@ -31,10 +31,10 @@ export class HomePageReducer {
 	}
 
 	private static toggleOpenedAction(
-		state: IHomePageState,
-		actionType: HomePageAction,
+		state: IHeaderState,
+		actionType: HeaderActionType,
 		actionState: IToggleOpenedState
-	): IHomePageState {
+	): IHeaderState {
 		let { isOpen, className } = actionState;
 		if (isOpen) {
 			className = className.replace(/\bopened\b/i, "");

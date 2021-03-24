@@ -1,0 +1,118 @@
+.product {
+  $element-max-width: 350px;
+
+  &__container {
+    @extend .container;
+    display: flex;
+    margin: 40px auto;
+    color: #151515;
+  }
+  
+  &__column {
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+
+    &:nth-of-type(2) {
+      margin-left: 50px;
+    } 
+  }
+
+  &__name {
+    word-wrap: break-word;
+    font-weight: bold;
+    font-size: 22px;
+    line-height: 1.1;
+    text-rendering: optimizeLegibility;
+  }
+
+  &__category {
+    font-size: 15px;
+    margin-top: 10px;
+  }
+
+  &__price {
+    font-size: 22px;
+    font-weight: bold;
+    margin-top: 20px;
+
+    &__old { 
+      color: #b7b7b7;
+      text-decoration: line-through;
+      padding-right: 20px;
+    }
+  }
+
+  &__size__picker {
+    max-width: $element-max-width;
+    
+    &__header {
+      display: flex;
+      margin-top: 40px;
+      justify-content: space-between;
+
+      &__how_to {
+        border-bottom: 1px solid #b7b7b7;
+      }
+    }
+
+    &__table {
+      display: flex;
+      flex-wrap: wrap;
+      margin-top: 10px;
+      font-weight: bold;
+      
+      div {
+        cursor: pointer;
+        display: flex;
+        flex-basis: 33.3%;
+        justify-content: center;
+        align-items: center;
+        
+        height: 50px;
+        border: 1px solid #b7b7b7;
+
+        &:not(:first-child):not(:nth-child(4n)) {
+          border-left:  none;
+        }
+
+        &:nth-child(n+4) {
+          border-top: none;
+        }
+      }
+    }
+  }
+
+  &__cart__button {
+    margin-top: 30px;
+    font-size: 18px;
+    font-weight: bold;  
+    text-align: center;
+    color: white;
+    background-color: black;
+    padding: 10px 0;
+    cursor: pointer;
+    max-width: $element-max-width;
+  }
+
+  &__description {
+    font-size: 13px;
+    line-height: 25px;
+    word-wrap: break-word;
+    white-space: pre-line;
+    opacity: .9;
+    margin-top: 40px;
+    max-width: $element-max-width;
+  }
+
+  &__delivery__button {
+    display: flex;
+    cursor: pointer;
+    justify-content: space-between;
+    margin-top: 50px;
+    padding: 8px 0;
+    border-top: 1px solid #b7b7b7;
+    border-bottom: 1px solid #b7b7b7;
+    max-width: $element-max-width;
+  }
+}

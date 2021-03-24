@@ -1,14 +1,14 @@
 import React, { useCallback } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import HomePageActions from "../../../redux/home-page/actions";
-import { HomePageSelectors } from "../../../redux/home-page/selectors";
+import HeaderActions from "../../../redux/header/actions";
+import { HeaderSelectors } from "../../../redux/header/selectors";
 
 export const MobileNavQuestions: React.FC<{}> = () => {
-    const questionsClassName = useSelector(HomePageSelectors.getQuestionsClassName);
+    const questionsClassName = useSelector(HeaderSelectors.getQuestionsClassName);
 
     const dispatch = useDispatch();
     const toggleQuestions = useCallback(()=>{
-        dispatch(HomePageActions.toggleQuestions());
+        dispatch(HeaderActions.toggleQuestions());
     }, []);
 
     return (

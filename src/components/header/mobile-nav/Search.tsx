@@ -1,14 +1,14 @@
 import React, { useCallback } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import HomePageActions from "../../../redux/home-page/actions";
-import { HomePageSelectors } from "../../../redux/home-page/selectors";
+import HeaderActions from "../../../redux/header/actions";
+import { HeaderSelectors } from "../../../redux/header/selectors";
 
 export const MobileNavSearch: React.FC<{}> = () => {
-    const searchClassName = useSelector(HomePageSelectors.getSearchClassName);
+    const searchClassName = useSelector(HeaderSelectors.getSearchClassName);
     
     const dispatch = useDispatch();
     const toggleSearch = useCallback(()=>{
-        dispatch(HomePageActions.toggleSearch());
+        dispatch(HeaderActions.toggleSearch());
     }, []);
 
     return (
