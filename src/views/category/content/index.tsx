@@ -1,9 +1,6 @@
-import { wrap } from "lodash";
 import React, { useCallback, useMemo, useState } from "react";
-import { Link } from "react-router-dom";
-import { ICategoryListItem } from "../../../components/header/categories/interfaces";
 import { ICategoryContent } from "../../product/constants";
-import { useSizes } from "./hooks";
+import { useFiltered, useSizes, useSorted } from "./hooks";
 import { Sort } from "./interfaces";
 import { CategoryContentItem } from "./Item";
 import { CategoryContentSizes } from "./Sizes";
@@ -18,7 +15,7 @@ export const CategoryContent: React.FC<{ contents: ICategoryContent[] }> = (
     const [checkedSizes, setCheckedSizes] = useState<Set<string>>(
         new Set<string>()
     );
-    const onSizeCheck = useCallback(
+    const handleSizeCheck = useCallback(
         (e: React.ChangeEvent<HTMLInputElement>) => {
             const target = e.currentTarget;
             setCheckedSizes((checkedSizes) => {
@@ -40,21 +37,8 @@ export const CategoryContent: React.FC<{ contents: ICategoryContent[] }> = (
         []
     );
 
-    const filtered = useMemo(() => {
-        const filtered = checkedSizes.size
-            ? contents.filter((e) =>
-                  e.sizes.some((e) => checkedSizes.has(e.name))
-              )
-            : contents;
-        return [...filtered];
-    }, [checkedSizes, contents]);
-
-    const sorted = useMemo(() => {
-        if (sort === Sort.PriceAsc) return sortByPriceAsc(filtered);
-        if (sort === Sort.PriceDesc) return sortByPriceDesc(filtered);
-
-        return [...filtered];
-    }, [sort, filtered]);
+    const filtered = useFiltered(contents, checkedSizes);
+    const sorted = useSorted(filtered, sort);
 
     return (
         <div className="category__container">
@@ -65,7 +49,7 @@ export const CategoryContent: React.FC<{ contents: ICategoryContent[] }> = (
                     <div className="title">Размер</div>
                     <CategoryContentSizes
                         checkedSizes={checkedSizes}
-                        onSizeCheck={onSizeCheck}
+                        onSizeCheck={handleSizeCheck}
                         sizes={sizes}
                     />
                 </div>
@@ -78,23 +62,3 @@ export const CategoryContent: React.FC<{ contents: ICategoryContent[] }> = (
         </div>
     );
 };
-
-function sortByOurChoice(items: ICategoryContent[]): ICategoryContent[] {
-    return items;
-}
-
-function sortByPriceAsc(items: ICategoryContent[]): ICategoryContent[] {
-    return items.sort((a, b) => {
-        if (a.price < b.price) return -1;
-        if (a.price > b.price) return 1;
-        return 0;
-    });
-}
-
-function sortByPriceDesc(items: ICategoryContent[]): ICategoryContent[] {
-    return items.sort((a, b) => {
-        if (a.price > b.price) return -1;
-        if (a.price < b.price) return 1;
-        return 0;
-    });
-}
