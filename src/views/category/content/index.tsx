@@ -5,6 +5,9 @@ import { ICategoryListItem } from "../../../components/header/categories/interfa
 import { ICategoryContent } from "../../product/constants";
 import { useSizes } from "./hooks";
 import { Sort } from "./interfaces";
+import { CategoryContentItem } from "./Item";
+import { CategoryContentSizes } from "./Sizes";
+import { CategoryContentSortButton } from "./Sort";
 
 export const CategoryContent: React.FC<{ contents: ICategoryContent[] }> = (
     props
@@ -55,57 +58,20 @@ export const CategoryContent: React.FC<{ contents: ICategoryContent[] }> = (
 
     return (
         <div className="category__container">
-            <div className="select">
-                <select onChange={handleSortChange}>
-                    <option selected disabled>
-                        Сортировать
-                    </option>
-                    <option value={Sort.OurChoice}>Наш выбор</option>
-                    <option value={Sort.PriceAsc}>Цена по возрастанию</option>
-                    <option value={Sort.PriceDesc}>Цена по убыванию</option>
-                </select>
-            </div>
+            <CategoryContentSortButton onSortChange={handleSortChange} />
 
             <div className="category__columns">
                 <div className="category__column left">
                     <div className="title">Размер</div>
-                    {sizes.map((e) => (
-                        <div>
-                            <input
-                                type="checkbox"
-                                value={e}
-                                id={e}
-                                checked={checkedSizes.has(e)}
-                                onChange={onSizeCheck}
-                            />
-                            <label style={{ marginLeft: 10 }} htmlFor={e}>
-                                {e}
-                            </label>
-                        </div>
-                    ))}
+                    <CategoryContentSizes
+                        checkedSizes={checkedSizes}
+                        onSizeCheck={onSizeCheck}
+                        sizes={sizes}
+                    />
                 </div>
                 <div className="category__column right">
                     {sorted.map((e) => (
-                        <Link
-                            to={`/products/${e.slug}`}
-                            className="category__item"
-                        >
-                            <div className="category__item__image" />
-                            <div>
-                                {e.title} {e.brand}
-                            </div>
-                            <div className="category__item__price__container">
-                                <span className="category__item__price discountless">
-                                    {e.discountlessPrice &&
-                                        e.discountlessPrice.toLocaleString(
-                                            "ru-RU"
-                                        ) + " руб."}
-                                </span>
-                                <span className="category__item__price">
-                                    {e.price.toLocaleString("ru-RU")} руб.
-                                </span>
-                            </div>
-                        </Link>
+                        <CategoryContentItem item={e} />
                     ))}
                 </div>
             </div>
