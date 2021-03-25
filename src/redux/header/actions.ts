@@ -1,8 +1,10 @@
 import { Action } from "redux";
 import { ICategoryListItem } from "../../components/header/categories/interfaces";
-import { HeaderActionType, ILoadCategoriesAction, IToggleOpenedStateAction } from "./interfaces";
+import { CommonActions } from "../actions";
+import { IToggleOpenedStateAction } from "../interfaces";
+import { HeaderActionType, ILoadCategoriesAction } from "./interfaces";
 
-export default class HeaderActions {
+export default class HeaderActions extends CommonActions {
     public static loadCategories(categories: ICategoryListItem[]): ILoadCategoriesAction {
       return {categories, type: HeaderActionType.loadCategories};
     }
@@ -17,16 +19,5 @@ export default class HeaderActions {
 
     public static toggleQuestions(): IToggleOpenedStateAction {
         return this.toggleOpenedAction(HeaderActionType.toggleQuestions);
-    }
-
-    private static toggleOpenedAction(
-        actionType:
-            | HeaderActionType.toggleSearch
-            | HeaderActionType.toggleQuestions
-            | HeaderActionType.toggleMainHamburger
-    ): IToggleOpenedStateAction {
-        return {
-            type: actionType,
-        };
     }
 }

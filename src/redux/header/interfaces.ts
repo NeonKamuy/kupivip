@@ -1,5 +1,6 @@
 import { Action } from "redux";
 import { ICategoryListItem } from "../../components/header/categories/interfaces";
+import { IToggleOpenedState } from "../interfaces";
 
 // Action
 export enum HeaderActionType {
@@ -11,7 +12,13 @@ export enum HeaderActionType {
 export const HeaderActionTypes = Object.values(HeaderActionType);
 export const HeaderActionTypesSet = new Set(HeaderActionTypes);
 
-export type IHeaderAction = IToggleOpenedStateAction | ILoadCategoriesAction;
+export type IHeaderAction =
+    | Action<
+          | HeaderActionType.toggleMainHamburger
+          | HeaderActionType.toggleQuestions
+          | HeaderActionType.toggleSearch
+      >
+    | ILoadCategoriesAction;
 
 // State
 export interface IHeaderState {
@@ -21,20 +28,8 @@ export interface IHeaderState {
     [HeaderActionType.loadCategories]: ICategoryListItem[];
 }
 
-// Toggle Opened State
-export interface IToggleOpenedState {
-    isOpen: boolean;
-    className: string;
-}
-
-// Toggle Opened State Action
-export type IToggleOpenedStateAction = Action<
-    | HeaderActionType.toggleMainHamburger
-    | HeaderActionType.toggleQuestions
-    | HeaderActionType.toggleSearch
->;
-
 // Categories Load Action
-export interface ILoadCategoriesAction extends Action<HeaderActionType.loadCategories> {
+export interface ILoadCategoriesAction
+    extends Action<HeaderActionType.loadCategories> {
     categories: ICategoryListItem[];
 }

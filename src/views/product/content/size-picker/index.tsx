@@ -1,4 +1,7 @@
 import React, { useCallback, useMemo, useState } from "react";
+import { useDispatch } from "react-redux";
+import HeaderActions from "../../../../redux/header/actions";
+import ProductActions from "../../../../redux/product/actions";
 import { IProduct } from "../../constants";
 
 export const ProductSizePicker: React.FC<{ sizes: IProduct["sizes"] }> = (
@@ -24,11 +27,19 @@ export const ProductSizePicker: React.FC<{ sizes: IProduct["sizes"] }> = (
         });
     }, [picked]);
 
+    const dispatch = useDispatch();
+    const toggleSizePickerFAQ = useCallback(()=>{
+        dispatch(ProductActions.toggleSizePickerFAQ);
+    }, []);
+
     return (
         <div className="product__size__picker">
             <div className="product__size__picker__header">
                 <span>Выберите размер</span>
-                <span className="product__size__picker__header__how_to">
+                <span
+                    className="product__size__picker__header__how_to"
+                    onClick={toggleSizePickerFAQ}
+                >
                     Как выбрать
                 </span>
             </div>
