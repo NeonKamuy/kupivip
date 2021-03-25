@@ -5,19 +5,21 @@ export const ProductDeliveryButton: React.FC<{}> = () => {
     const toggleIsActive = useCallback(()=>setIsActive(e => !e), []);
 
     return (
-        <>
+        <div className="product__delivery__button__container">
             <div className={getButtonClassName(isActive)} onClick={toggleIsActive}>
                 <span>Доставка и возврат</span>
                 <span>{isActive ? "-" : "+"}</span>
             </div>
 
             <div className={getDescriptionClassName(isActive)}>
-                Бесплатная доставка по России при покупке от 20 000 ₽ Вы можете
-                отказаться от заказанного товара в любое время до его получения,
-                в момент передачи товара курьером, а также после получения — в
-                течение 14 календарных дней. Читать условия полностью.
+                <span>
+                    Бесплатная доставка по России при покупке от 20 000 ₽ Вы можете
+                    отказаться от заказанного товара в любое время до его получения,
+                    в момент передачи товара курьером, а также после получения — в
+                    течение 14 календарных дней. Читать условия полностью.
+                </span>
             </div>
-        </>
+        </div>
     );
 };
 

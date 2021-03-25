@@ -178,27 +178,25 @@
   }
 
   &__delivery__button {
+    &__container {
+      padding: 10px 0px;
+      border-top: 1px solid #b7b7b7;
+      border-bottom: 1px solid #b7b7b7;  
+      margin-top: 50px;
+    }
+
     display: flex;
     cursor: pointer;
     justify-content: space-between;
-    margin-top: 50px;
-    padding: 8px 0;
-    border-top: 1px solid #b7b7b7;
-    border-bottom: 1px solid #b7b7b7;
-
-    &.active {
-      border-bottom: none;
-    }
 
     &__description {
-      height: 0px;
       overflow: hidden;
+      max-height: 0px;
+      transition: max-height 1s linear;
     
       &.active {
         display: block;
-        height: max-content;
-        padding: 10px 0;
-        border-bottom: 1px solid #b7b7b7;
+        max-height: 500px;
       }
     }
   }
