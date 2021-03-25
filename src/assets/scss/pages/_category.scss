@@ -1,14 +1,16 @@
 .category {
     &__container {
         @extend .container--large;
+        color: black;
+        margin: 10px auto;
+    }
 
+    &__columns {
         display: flex;
         flex-wrap: wrap;
         justify-content: space-between;
         flex-direction: row;
-
-        margin: 40px auto;
-        color: black;
+        margin: 20px auto;
 
         @include mobile {
             justify-content: center;
@@ -26,8 +28,8 @@
             border-bottom: 1px solid #b7b7b7;
 
             .title {
-              font-weight: bold;
-              margin-bottom: 20px;
+                font-weight: bold;
+                margin-bottom: 20px;
             }
         }
 
@@ -44,48 +46,50 @@
     }
 
     &__item {
-      width: 320px;
-      margin-bottom: 50px;
-      padding: 5px 15px;
-      text-decoration: none;
-      text-align: center;
-      font-size: 15px;
-
-      @include tablet-sm {
-        width: 270px;
-      }
-
-      &__image {
-        height: 280px;
-        width: auto;
-        border: 1px solid black;
-        margin: 10px;
+        width: 320px;
+        margin-bottom: 50px;
+        padding: 5px 15px;
+        text-decoration: none;
+        text-align: center;
+        font-size: 15px;
 
         @include tablet-sm {
-          height: 240px;
+            width: 270px;
         }
-      }
 
-      &__price {
-        &__container {
-          display: flex;
-          justify-content: center;
-          margin-top: 10px;
-        }
-        
-        &.discountless {
-          color: #b7b7b7;
-          text-decoration: line-through;
-          padding-right: 20px;    
-        }
-      }
+        &__image {
+            height: 280px;
+            width: auto;
+            border: 1px solid black;
+            margin: 10px;
 
-      &:active, &:visited, &:link {
-        text-decoration: none;
-        color: black;
-      }
-      &:hover {
-        box-shadow: 0 0 3px 3px #b7b7b7;
-      }
+            @include tablet-sm {
+                height: 240px;
+            }
+        }
+
+        &__price {
+            &__container {
+                display: flex;
+                justify-content: center;
+                margin-top: 10px;
+            }
+
+            &.discountless {
+                color: #b7b7b7;
+                text-decoration: line-through;
+                padding-right: 20px;
+            }
+        }
+
+        &:active,
+        &:visited,
+        &:link {
+            text-decoration: none;
+            color: black;
+        }
+        &:hover {
+            box-shadow: 0 0 3px 3px #b7b7b7;
+        }
     }
 }
