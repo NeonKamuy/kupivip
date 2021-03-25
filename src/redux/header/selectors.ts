@@ -1,6 +1,11 @@
+import { ICategoryListItem } from "../../components/header/categories/interfaces";
 import { HeaderActionType, IHeaderState } from "./interfaces";
 
 export class HeaderSelectors {
+  public static getCategoryList(state: IHeaderState): ICategoryListItem[] {
+    return state[HeaderActionType.loadCategories];
+  }
+
   public static getSearchClassName(state: IHeaderState) {
     return state[HeaderActionType.toggleSearch].className;
   }

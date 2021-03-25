@@ -5,6 +5,8 @@ import { HeaderSelectors } from "../../../redux/header/selectors";
 
 export const MobileNavMain: React.FC<{}> = () => {
     const hamburgerClassName = useSelector(HeaderSelectors.getMainHamburgerClassName);
+    const categories = useSelector(HeaderSelectors.getCategoryList);
+
     const dispatch = useDispatch();
     const toggleHamburger = useCallback(()=>{
         dispatch(HeaderActions.toggleMainHamburger());
@@ -24,11 +26,9 @@ export const MobileNavMain: React.FC<{}> = () => {
 
             <section className="nav__mobile-content nav__mobile-content--main">
                 <ul>
-                    <li><a href="#">Menu Item 1</a></li>
-                    <li><a href="#">Menu Item 2</a></li>
-                    <li><a href="#">Menu Item 3</a></li>
-                    <li><a href="#">Menu Item 4</a></li>
-                    <li><a href="#">Menu Item 5</a></li>
+                    {categories.map(e => {
+                        return  <li><a href={`/categories/${e.slug}`}>{e.categoryName}</a></li>;
+                    })}
                 </ul>
             </section>
         </nav>

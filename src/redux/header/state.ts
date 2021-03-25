@@ -1,7 +1,9 @@
+import { ICategoryListItem } from "../../components/header/categories/interfaces";
 import { HeaderActionType, IHeaderState } from "./interfaces";
 
 // State
 export const HeaderInitialState: IHeaderState = {
+    [HeaderActionType.loadCategories]: [] as ICategoryListItem[],
     [HeaderActionType.toggleSearch]: {
       isOpen: false,
       className: "nav__mobile search"

@@ -1,7 +1,9 @@
-import { Action } from "redux";
+import { Action, AnyAction } from "redux";
 import {
 	HeaderActionType,
+	IHeaderAction,
 	IHeaderState,
+	ILoadCategoriesAction,
 	IToggleOpenedState,
 } from "./interfaces";
 import { HeaderInitialState } from "./state";
@@ -9,7 +11,7 @@ import { HeaderInitialState } from "./state";
 export class HeaderReducer {
 	public static reduce(
 		state = HeaderInitialState as IHeaderState,
-		action: Action
+		action: IHeaderAction
 	): IHeaderState {
 		switch (action.type) {
 			case HeaderActionType.toggleMainHamburger:
@@ -24,10 +26,16 @@ export class HeaderReducer {
 				return this.toggleOpenedAction(
 					state, action.type, state[HeaderActionType.toggleQuestions]
 				)
+			case HeaderActionType.loadCategories:
+				return this.loadCategories(state, action as ILoadCategoriesAction);
 			default: {
 				return state;
 			}
 		}
+	}
+
+	private static loadCategories(state: IHeaderState, action: ILoadCategoriesAction): IHeaderState {
+		return {...state, [action.type]: action.categories }
 	}
 
 	private static toggleOpenedAction(

@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import CategoryController from ".";
-import { ICategoryListItem } from "../../components/categories/interfaces";
+import { ICategoryListItem } from "../../components/header/categories/interfaces";
 import { ICategoryContent, IProduct } from "../../views/product/constants";
 
 // Get All Categories

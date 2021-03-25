@@ -10,7 +10,7 @@
     margin: 40px auto;
     color: $main-color;
 
-    @include mobile {
+    @include tablet {
       justify-content: center;
     }
   }
@@ -25,13 +25,9 @@
 
     &.right {
       flex-basis: 350px;
-
-      @include tablet {
-        flex-basis: 300px;
-      }
     } 
 
-    @include mobile {
+    @include tablet {
       margin-top: 100px;
       flex-basis: 90% !important;
       justify-content: center;

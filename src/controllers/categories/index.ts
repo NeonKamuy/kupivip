@@ -1,6 +1,6 @@
 import axios from "axios";
 import { __CONFIG__ } from "../../assets/config";
-import { ICategoryListItem } from "../../components/categories/interfaces";
+import { ICategoryListItem } from "../../components/header/categories/interfaces";
 import { ICategoryContent, IProduct } from "../../views/product/constants";
 import { IARequest } from "../interfaces";
 import Requests from "../requests";

@@ -1,11 +1,12 @@
 import React from "react";
-import { useCategories } from "../../../controllers/categories/hooks";
+import { useSelector } from "react-redux";
+import { useCategories } from "../../../../controllers/categories/hooks";
+import { HeaderSelectors } from "../../../../redux/header/selectors";
 import { CategoryListItem } from "./Item";
 
 export const CategoryList: React.FC<{}> = () => {
-	// Retrieving All Categories
-	const categories = useCategories();
-
+	const categories = useSelector(HeaderSelectors.getCategoryList);
+	
 	return (
 		<nav className="cats__nav">
 			<ul className="cats__list">

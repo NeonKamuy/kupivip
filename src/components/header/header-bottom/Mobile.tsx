@@ -1,7 +1,7 @@
 import React, { useCallback } from "react";
 import { useDispatch } from "react-redux";
 import HeaderActions from "../../../redux/header/actions";
-import { HeaderActionType } from "../../../redux/header/interfaces";
+import { HeaderActionType, IHeaderAction } from "../../../redux/header/interfaces";
 
 export const HeaderBottomMobile: React.FC<{}> = () => {
     const dispatch = useDispatch();
