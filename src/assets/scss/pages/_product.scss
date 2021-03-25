@@ -90,7 +90,7 @@
         height: 50px;
         border: 1px solid #b7b7b7;
 
-        &:not(:first-child):not(:nth-child(4n)) {
+        &:not(:first-child):not(:nth-child(3n+1)) {
           border-left:  none;
         }
 
