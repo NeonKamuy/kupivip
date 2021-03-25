@@ -90,7 +90,7 @@
       margin-top: 10px;
       font-weight: bold;
       
-      &__row {
+      &__cell {
         cursor: pointer;
         display: flex;
         flex-basis: 33.3%;
@@ -108,7 +108,7 @@
           border-top: none;
         }
 
-        &:hover {
+        &:hover, &.picked {
           background-color: $main-color;
           color: white;
         }
