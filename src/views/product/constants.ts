@@ -4,11 +4,13 @@ export const ImageGallerySettings = {
 }
 
 /******************* Interfaces ********************/
+// Product Gallery Image Type
 export interface IGalleryImage {
   original: string,
   thumbnail: string
 }
 
+// Product Full Information
 export interface IProduct extends IProductDescription {
   slug: string;
   price: number;
@@ -17,6 +19,7 @@ export interface IProduct extends IProductDescription {
   sizes: {id: number, name: string}[];
 }
 
+// Product Description
 export interface IProductDescription {
   brand: string;
   title: string;
@@ -25,3 +28,6 @@ export interface IProductDescription {
   material: string;
   brandOrigin: string;
 }
+
+// Category Contents Element
+export type ICategoryContent = Pick<IProduct, "slug" | "title" | "price" | "discountlessPrice" | "brand" | "sizes">;

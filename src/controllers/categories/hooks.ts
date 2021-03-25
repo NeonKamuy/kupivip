@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import CategoryController from ".";
 import { ICategoryListItem } from "../../components/categories/interfaces";
-import { IProduct } from "../../views/product/constants";
+import { ICategoryContent, IProduct } from "../../views/product/constants";
 
 // Get All Categories
 export const useCategories = () => {
@@ -23,4 +23,15 @@ export const useProduct = (slug: string) => {
     }, [slug]);
 
     return product;
+}
+
+// Get Category Contents
+export const useCategoryContents = (slug: string) => {
+    const [category, setCategory] = useState<ICategoryContent[] | null>(null);
+
+    useEffect(()=>{
+        CategoryController.getCategoryContents({data: {slug}}).then(res => setCategory(res));
+    }, [slug]);
+
+    return category;
 }

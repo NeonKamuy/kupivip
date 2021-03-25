@@ -6,11 +6,11 @@ export const ProductDescription: React.FC<{description: IProductDescription}> = 
 
   return (
     <div className="product__description">
-        <span>{title + brand}</span><br />
-        <span>{wBullet("происхождение бренда", brandOrigin)}</span><br />
-        <span>{wBullet("производство", madeIn)}</span><br />
-        <span>{wBullet("материал", material)}</span><br />
-        <span>{wBullet("цвет", color)}</span><br />
+        <div>{title + brand}</div>
+        <div>{wBullet("происхождение бренда", brandOrigin)}</div>
+        <div>{wBullet("производство", madeIn)}</div>
+        <div>{wBullet("материал", material)}</div>
+        <div>{wBullet("цвет", color)}</div>
     </div>
   );
 }

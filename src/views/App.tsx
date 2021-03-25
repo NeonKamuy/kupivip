@@ -1,6 +1,7 @@
 import React from "react";
 import { Helmet } from "react-helmet";
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
+import { Category } from "./category";
 import { Home } from "./home";
 import { Product } from "./product";
 
@@ -11,8 +12,11 @@ const App = () => {
                     <Route path="/" exact>
                         <Home />
                     </Route>
-                    <Route path="/product/:slug" exact>
+                    <Route path="/products/:slug" exact>
                         <Product />
+                    </Route>
+                    <Route path="/categories/:slug" exact>
+                        <Category />
                     </Route>
                 </Switch>
             </Router>

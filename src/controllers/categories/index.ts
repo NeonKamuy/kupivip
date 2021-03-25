@@ -1,7 +1,7 @@
 import axios from "axios";
 import { __CONFIG__ } from "../../assets/config";
 import { ICategoryListItem } from "../../components/categories/interfaces";
-import { IProduct } from "../../views/product/constants";
+import { ICategoryContent, IProduct } from "../../views/product/constants";
 import { IARequest } from "../interfaces";
 import Requests from "../requests";
 
@@ -18,6 +18,23 @@ export default class CategoryController {
                 slug: e.fields.slug,
             }));
         });
+    }
+
+    public static getCategoryContents(
+        args: IARequest<{slug: string}>
+    ): Promise<ICategoryContent[]> {
+        const { slug } = args.data;
+        return Requests.wrapInPromise(
+            axios.get(`${__CONFIG__.serverApiURL}/categories/${slug}/`),
+            args
+        ).then((res: any) => res.map((e: any) => ({
+            slug: e.fields.slug,
+            title: e.fields.title,
+            price: e.fields.price,
+            discountlessPrice: e.fields.discountless_price,
+            brand: e.fields.brand,
+            sizes: e.fields.available_sizes,
+        })));
     }
 
     public static getProduct(
