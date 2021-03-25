@@ -5,6 +5,6 @@ import { IProductState, ProductActionType } from "./interfaces";
 export const ProductInitialState: IProductState = {
     [ProductActionType.toggleSizePickerFAQ]: {
       isOpen: false,
-      className: "product__size__picker__faq"
+      className: "product__size_picker__faq"
     }
 } as const;
