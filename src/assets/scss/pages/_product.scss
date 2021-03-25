@@ -56,7 +56,7 @@
     font-weight: bold;
     margin-top: 20px;
 
-    &__old { 
+    &__discountless { 
       color: #b7b7b7;
       text-decoration: line-through;
       padding-right: 20px;
@@ -80,7 +80,7 @@
       margin-top: 10px;
       font-weight: bold;
       
-      div {
+      &__row {
         cursor: pointer;
         display: flex;
         flex-basis: 33.3%;
@@ -121,7 +121,6 @@
     font-size: 13px;
     line-height: 25px;
     word-wrap: break-word;
-    white-space: pre-line;
     opacity: .9;
     margin-top: 40px;
   }

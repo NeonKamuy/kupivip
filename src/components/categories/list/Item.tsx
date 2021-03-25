@@ -7,7 +7,7 @@ export const CategoryListItem: React.FC<ICategoryListItem> = (props) => {
 
   return (
     <li className="cats__item">
-      <a href={`${__CONFIG__.backendURL}/categories/${slug}`} className="cats__link">
+      <a href={`${__CONFIG__.serverApiURL}/categories/${slug}`} className="cats__link">
         {categoryName}
       </a>
     </li>

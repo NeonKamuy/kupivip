@@ -1,6 +1,9 @@
 import React from "react";
+import { IProduct } from "../../constants";
 
-export const ProductSizePicker: React.FC<{}> = ()=>{
+export const ProductSizePicker: React.FC<{sizes: IProduct["sizes"]}> = (props)=>{
+  const {sizes} = props;
+
   return (
     <div className="product__size__picker">
       <div className="product__size__picker__header">
@@ -8,11 +11,7 @@ export const ProductSizePicker: React.FC<{}> = ()=>{
         <span className="product__size__picker__header__how_to">Как выбрать</span>
       </div>
       <div className="product__size__picker__table">
-        <div><span>S</span></div>
-        <div><span>M</span></div>
-        <div><span>L</span></div>
-        <div><span>XL</span></div>
-        <div><span>XXL</span></div>
+        {sizes.map(e => <div className="product__size__picker__table__row"><span>{e.name}</span></div>)}
       </div>
     </div>
   );
