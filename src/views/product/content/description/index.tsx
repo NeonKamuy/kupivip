@@ -6,7 +6,7 @@ export const ProductDescription: React.FC<{description: IProductDescription}> = 
 
   return (
     <div className="product__description">
-        <div>{title + brand}</div>
+        <div>{title + " " + brand}</div>
         <div>{wBullet("происхождение бренда", brandOrigin)}</div>
         <div>{wBullet("производство", madeIn)}</div>
         <div>{wBullet("материал", material)}</div>

@@ -1,7 +1,5 @@
 import React from "react";
-import ReactImageGallery from "react-image-gallery";
-import { useProduct } from "../../../controllers/categories/hooks";
-import { ImageGallerySettings, IProduct } from "../constants";
+import { IProduct } from "../constants";
 import { ProductDeliveryButton } from "./delivery";
 import { ProductDescription } from "./description";
 import { ProductGallery } from "./gallery";
