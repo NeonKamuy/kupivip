@@ -1,6 +1,7 @@
 // ReactImageGallery Component Settings
 export const ImageGallerySettings = {
   showPlayButton: false,
+  useBrowserFullscreen: false
 }
 
 /******************* Interfaces ********************/

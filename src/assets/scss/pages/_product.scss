@@ -21,6 +21,7 @@
 
     &.left {
       flex-basis: 50%;
+      cursor: zoom-in;
     }
 
     &.right {
@@ -31,6 +32,19 @@
       margin-top: 100px;
       flex-basis: 90% !important;
       justify-content: center;
+    }
+  }
+
+  &__image__gallery__root {
+    cursor: zoom-in;
+
+    &.fullscreen-modal {
+      background: rgba(0,0,0, 0.8) !important;
+      cursor: zoom-out;
+    }
+
+    & .fullscreen {
+      background: rgba(0,0,0,0) !important;
     }
   }
 
