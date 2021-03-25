@@ -44,7 +44,7 @@ export const CategoryContent: React.FC<{ contents: ICategoryContent[] }> = (
 
             <div style={contentsStyles}>
                 {(checkedSizes.size ? contents.filter(e => e.sizes.some(e => checkedSizes.has(e.name))) : contents).map((e) => (
-                    <Link to={`/product/${e.slug}`}>
+                    <Link to={`/products/${e.slug}`}>
                         <div style={contentStyles}>
                             <div>Brand: {e.brand}</div>
                             <div>Title: {e.title}</div>

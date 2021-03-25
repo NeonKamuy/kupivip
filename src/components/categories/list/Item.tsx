@@ -8,7 +8,7 @@ export const CategoryListItem: React.FC<ICategoryListItem> = (props) => {
 
   return (
     <li className="cats__item">
-      <Link to={`/category/${slug}`} className="cats__link">
+      <Link to={`/categories/${slug}`} className="cats__link">
         {categoryName}
       </Link>
     </li>
