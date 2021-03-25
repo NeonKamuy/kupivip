@@ -46,6 +46,7 @@ export default class CategoryController {
             args
         ).then((res: any) => ({
             slug: res[0].fields.slug,
+            sku: res[0].fields.sku,
             title: res[0].fields.title,
             price: res[0].fields.price,
             discountlessPrice: res[0].fields.discountless_price,

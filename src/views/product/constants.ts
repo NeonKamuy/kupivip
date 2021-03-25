@@ -12,6 +12,7 @@ export interface IGalleryImage {
 
 // Product Full Information
 export interface IProduct extends IProductDescription {
+  sku: string;
   slug: string;
   price: number;
   discountlessPrice: number | null;

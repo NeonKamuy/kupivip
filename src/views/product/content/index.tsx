@@ -10,7 +10,7 @@ import { ProductSizePicker } from "./size-picker";
 
 export const ProductContent:React.FC<{product: IProduct}> = (props)=>{
   const {product} = props;
-  const galleryImages = useGalleryImages(product.images);
+  const galleryImages = useGalleryImages(product);
 
   return (
     <div className="product__container">
