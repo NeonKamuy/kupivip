@@ -9,6 +9,7 @@ export const MobileNavMain: React.FC<{}> = () => {
 
     const dispatch = useDispatch();
     const toggleHamburger = useCallback(()=>{
+        console.log(1);
         dispatch(HeaderActions.toggleMainHamburger());
     }, []);
 

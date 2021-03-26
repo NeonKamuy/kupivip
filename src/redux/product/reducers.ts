@@ -11,6 +11,8 @@ export default class ProductReducer {
         switch (action.type) {
             case ProductActionType.toggleSizePickerFAQ:
                 return this.toggleSizePickerFAQ(state);
+            case ProductActionType.showSizePickerFAQ:
+                return this.showSizePickerFAQ(state);
             case ProductActionType.hideSizePickerFAQ:
                 return this.hideSizePickerFAQ(state);
             default: {
@@ -20,16 +22,9 @@ export default class ProductReducer {
     }
 
     private static toggleSizePickerFAQ(state: IProductState): IProductState {
-        const actionState = state.sizePickerFAQ;
-        let { isOpen, className } = actionState;
-
-        isOpen ? this.hideSizePickerFAQ(state) : this.showSizePickerFAQ(state);
-        isOpen = !isOpen;
-
-        return {
-            ...state,
-            sizePickerFAQ: { isOpen, className },
-        };
+        return state.sizePickerFAQ.isOpen
+            ? this.hideSizePickerFAQ(state)
+            : this.showSizePickerFAQ(state);
     }
 
     private static showSizePickerFAQ(state: IProductState): IProductState {

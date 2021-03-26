@@ -11,6 +11,7 @@ export const HeaderBottomMobile: React.FC<{}> = () => {
     }, []);
 
     const toggleHamburger = useCallback(()=>{
+        console.log("E");
         dispatch(HeaderActions.toggleMainHamburger());
     }, []);
 

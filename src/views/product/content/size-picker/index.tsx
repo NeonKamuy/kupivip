@@ -28,8 +28,10 @@ export const ProductSizePicker: React.FC<{ sizes: IProduct["sizes"] }> = (
     }, [picked]);
 
     const dispatch = useDispatch();
-    const toggleSizePickerFAQ = useCallback(()=>{
-        dispatch(ProductActions.toggleSizePickerFAQ());
+    const showSizePickerFAQ = useCallback((e: React.MouseEvent)=>{
+        e.preventDefault();
+        e.stopPropagation();
+        dispatch(ProductActions.showSizePickerFAQ());
     }, []);
 
     return (
@@ -38,7 +40,7 @@ export const ProductSizePicker: React.FC<{ sizes: IProduct["sizes"] }> = (
                 <span>Выберите размер</span>
                 <span
                     className="product__size_picker__header__how_to"
-                    onClick={toggleSizePickerFAQ}
+                    onClick={showSizePickerFAQ}
                 >
                     Как выбрать
                 </span>

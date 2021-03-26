@@ -14,10 +14,10 @@ export const Product: React.FC<{}> = () => {
     const { slug } = useParams<{ slug: string }>();
     const product = useProduct(slug);
 
-		const dispatch = useDispatch();
-		const hideProductSizePickerFAQ = useCallback(()=>{
-			dispatch(ProductActions.hideSizePickerFAQ());
-		}, []);
+    const dispatch = useDispatch();
+    const hideProductSizePickerFAQ = useCallback(() => {
+        dispatch(ProductActions.hideSizePickerFAQ());
+    }, []);
 
     if (!product) return null;
     return (

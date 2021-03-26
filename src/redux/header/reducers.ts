@@ -16,19 +16,19 @@ export class HeaderReducer {
             case HeaderActionType.toggleMainHamburger:
                 return this.toggleOpenedAction(
                     state,
-                    action.type,
+                    "mainHamburger",
                     state.mainHamburger
                 );
             case HeaderActionType.toggleSearch:
                 return this.toggleOpenedAction(
                     state,
-                    action.type,
+                    "search",
                     state.search
                 );
             case HeaderActionType.toggleQuestions:
                 return this.toggleOpenedAction(
                     state,
-                    action.type,
+                    "questions",
                     state.questions
                 );
             case HeaderActionType.loadCategories:
@@ -49,9 +49,9 @@ export class HeaderReducer {
         return { ...state, categories: action.categories };
     }
 
-    private static toggleOpenedAction(
+    private static toggleOpenedAction<K extends keyof IHeaderState>(
         state: IHeaderState,
-        actionType: HeaderActionType,
+        key: K,
         actionState: IToggleOpenedState
     ): IHeaderState {
         let { isOpen, className } = actionState;
@@ -62,6 +62,6 @@ export class HeaderReducer {
         }
         isOpen = !isOpen;
 
-        return { ...state, [actionType]: { isOpen, className } };
+        return { ...state, [key]: { isOpen, className } };
     }
 }
