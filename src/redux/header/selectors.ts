@@ -1,20 +1,21 @@
 import { ICategoryListItem } from "../../components/header/categories/interfaces";
+import { IRootState } from "../state";
 import { HeaderActionType, IHeaderState } from "./interfaces";
 
 export class HeaderSelectors {
-  public static getCategoryList(state: IHeaderState): ICategoryListItem[] {
-    return state.categories;
+  public static getCategoryList(state: IRootState): ICategoryListItem[] {
+    return state.HeaderState.categories;
   }
 
-  public static getSearchClassName(state: IHeaderState) {
-    return state.search.className;
+  public static getSearchClassName(state: IRootState) {
+    return state.HeaderState.search.className;
   }
 
-  public static getMainHamburgerClassName(state: IHeaderState) {
-    return state.mainHamburger.className;
+  public static getMainHamburgerClassName(state: IRootState) {
+    return state.HeaderState.mainHamburger.className;
   }
 
-  public static getQuestionsClassName(state: IHeaderState) {
-    return state.questions.className;
+  public static getQuestionsClassName(state: IRootState) {
+    return state.HeaderState.questions.className;
   }
 }

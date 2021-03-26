@@ -1,4 +1,8 @@
 .category {
+    &__size__filters__mob {
+        @extend .sidebar
+    }
+
     &__container {
         @extend .container--large;
         color: black;

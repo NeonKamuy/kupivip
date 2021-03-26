@@ -1,31 +1,29 @@
-import React, { useCallback, useMemo, useState } from "react";
+import React, { useCallback, useEffect, useMemo, useState } from "react";
 import { ICategoryContent } from "../../product/constants";
-import { useFiltered, useSizes, useSorted } from "./hooks";
+import { useCheckedSizes, useFiltered, useSizes, useSorted } from "./hooks";
 import { Sort } from "./interfaces";
 import { CategoryContentItem } from "./components/Item";
 import { CategoryContentSizes } from "./components/Sizes";
 import { CategoryContentSortButton } from "./components/Sort";
-import { CategoryContentSizesMobile } from "./components/SizesMobile";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
+import { IShowCategorySizeFiltersAction } from "../../../redux/category/interfaces";
+import CategoryActions from "../../../redux/category/actions";
+import { CategorySelectors } from "../../../redux/category/selectors";
 
 export const CategoryContent: React.FC<{ contents: ICategoryContent[] }> = (
     props
 ) => {
     const { contents } = props;
+    const dispatch = useDispatch();
     const sizes = useSizes(contents);
+    const checkedSizes = useSelector(CategorySelectors.getCheckedSizes);
+    const sizeFiltersOpen = useSelector(CategorySelectors.getSizeFiltersOpened);
 
-    const [checkedSizes, setCheckedSizes] = useState<Set<string>>(
-        new Set<string>()
-    );
     const handleSizeCheck = useCallback(
         (e: React.ChangeEvent<HTMLInputElement>) => {
             const target = e.currentTarget;
-            setCheckedSizes((checkedSizes) => {
-                const newChecked = new Set([...checkedSizes, target.value]);
-                checkedSizes.has(target.value) &&
-                    newChecked.delete(target.value);
-                return newChecked;
-            });
+            const value = target.value;
+            dispatch(CategoryActions.checkSize(value));
         },
         []
     );
@@ -42,13 +40,27 @@ export const CategoryContent: React.FC<{ contents: ICategoryContent[] }> = (
     const filtered = useFiltered(contents, checkedSizes);
     const sorted = useSorted(filtered, sort);
 
-    const dispatch = useDispatch();
+    const showFiltersSidebar = useCallback(() => {
+        dispatch<IShowCategorySizeFiltersAction>(
+            CategoryActions.showSizeFilters({
+                sizes,
+            })
+        );
+    }, [sizes, handleSizeCheck]);
+
+    useEffect(() => {
+        sizeFiltersOpen && showFiltersSidebar();
+    }, [sizes]);
 
     return (
         <div className="category__container">
             <div className="category__button__container">
                 <CategoryContentSortButton onSortChange={handleSortChange} />
-                <div className="category__button" id="filter">
+                <div
+                    className="category__button"
+                    id="filter"
+                    onClick={showFiltersSidebar}
+                >
                     <span>Фильтровать</span>
                 </div>
             </div>
