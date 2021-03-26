@@ -8,9 +8,9 @@ export const CategoryContentSizes: React.FC<{
     const { sizes, checkedSizes, onSizeCheck } = props;
 
     return (
-        <>
+        <ul>
             {sizes.map((e) => (
-                <div>
+                <li>
                     <input
                         type="checkbox"
                         value={e}
@@ -21,8 +21,8 @@ export const CategoryContentSizes: React.FC<{
                     <label style={{ marginLeft: 10 }} htmlFor={e}>
                         {e}
                     </label>
-                </div>
+                </li>
             ))}
-        </>
+        </ul>
     );
 };
