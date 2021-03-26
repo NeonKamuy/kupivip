@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { ICategoryContent } from "../../product/constants";
+import { ICategoryContent } from "../../../product/constants";
 
 export const CategoryContentItem: React.FC<{ item: ICategoryContent }> = ({
     item,

@@ -1,3 +1,5 @@
+import { Action } from "redux";
+import ProductActions from "./actions";
 import { IProductAction, IProductState, ProductActionType } from "./interfaces";
 import { ProductInitialState } from "./state";
 
@@ -8,30 +10,40 @@ export default class ProductReducer {
     ): IProductState {
         switch (action.type) {
             case ProductActionType.toggleSizePickerFAQ:
-                return this.toggleSizePickerFAQ(state, action);
+                return this.toggleSizePickerFAQ(state);
+            case ProductActionType.hideSizePickerFAQ:
+                return this.hideSizePickerFAQ(state);
             default: {
                 return state;
             }
         }
     }
 
-    private static toggleSizePickerFAQ(
-        state: IProductState,
-        action: IProductAction
-    ): IProductState {
-        const actionState = state[action.type];
+    private static toggleSizePickerFAQ(state: IProductState): IProductState {
+        const actionState = state.sizePickerFAQ;
         let { isOpen, className } = actionState;
 
-        if (isOpen) {
-            className = className.replace(/\bopened\b/i, "");
-        } else {
-            className = className + " opened";
-        }
+        isOpen ? this.hideSizePickerFAQ(state) : this.showSizePickerFAQ(state);
         isOpen = !isOpen;
 
         return {
             ...state,
-            [action.type]: { isOpen, className },
+            sizePickerFAQ: { isOpen, className },
         };
+    }
+
+    private static showSizePickerFAQ(state: IProductState): IProductState {
+        return {
+            ...state,
+            sizePickerFAQ: {
+                isOpen: true,
+                className:
+                    ProductInitialState.sizePickerFAQ.className + " opened",
+            },
+        };
+    }
+
+    private static hideSizePickerFAQ(state: IProductState): IProductState {
+        return { ...state, sizePickerFAQ: ProductInitialState.sizePickerFAQ };
     }
 }

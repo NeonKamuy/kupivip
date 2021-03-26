@@ -1,5 +1,5 @@
 import React from "react";
-import { Sort } from "./interfaces";
+import { Sort } from "../interfaces";
 
 export const CategoryContentSortButton: React.FC<{
     onSortChange: (e: React.ChangeEvent<HTMLSelectElement>) => void;

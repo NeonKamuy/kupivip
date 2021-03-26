@@ -3,7 +3,7 @@ import { IProductState, ProductActionType } from "./interfaces";
 
 // State
 export const ProductInitialState: IProductState = {
-    [ProductActionType.toggleSizePickerFAQ]: {
+    sizePickerFAQ: {
       isOpen: false,
       className: "product__size_picker__faq"
     }

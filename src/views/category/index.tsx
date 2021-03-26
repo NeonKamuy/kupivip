@@ -22,5 +22,4 @@ export const Category: React.FC<{}> = () => {
             <Footer />
         </>
     );
-    return <>{slug}</>;
 };

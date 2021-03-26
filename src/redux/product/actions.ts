@@ -1,9 +1,12 @@
-import { CommonActions } from "../actions";
-import { IToggleOpenedStateAction } from "../interfaces";
+import { Action } from "redux";
 import { ProductActionType } from "./interfaces";
 
-export default class ProductActions extends CommonActions {
-    public static toggleSizePickerFAQ(): IToggleOpenedStateAction {
-        return this.toggleOpenedAction(ProductActionType.toggleSizePickerFAQ);
+export default class ProductActions {
+    public static toggleSizePickerFAQ(): Action<ProductActionType.toggleSizePickerFAQ> {
+        return { type: ProductActionType.toggleSizePickerFAQ };
+    }
+
+    public static hideSizePickerFAQ(): Action<ProductActionType.hideSizePickerFAQ> {
+        return { type: ProductActionType.hideSizePickerFAQ };
     }
 }

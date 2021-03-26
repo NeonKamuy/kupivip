@@ -1,4 +1,3 @@
-import { Action, AnyAction } from "redux";
 import { IToggleOpenedState } from "../interfaces";
 import {
     HeaderActionType,
@@ -18,19 +17,19 @@ export class HeaderReducer {
                 return this.toggleOpenedAction(
                     state,
                     action.type,
-                    state[HeaderActionType.toggleMainHamburger]
+                    state.mainHamburger
                 );
             case HeaderActionType.toggleSearch:
                 return this.toggleOpenedAction(
                     state,
                     action.type,
-                    state[HeaderActionType.toggleSearch]
+                    state.search
                 );
             case HeaderActionType.toggleQuestions:
                 return this.toggleOpenedAction(
                     state,
                     action.type,
-                    state[HeaderActionType.toggleQuestions]
+                    state.questions
                 );
             case HeaderActionType.loadCategories:
                 return this.loadCategories(
@@ -47,7 +46,7 @@ export class HeaderReducer {
         state: IHeaderState,
         action: ILoadCategoriesAction
     ): IHeaderState {
-        return { ...state, [action.type]: action.categories };
+        return { ...state, categories: action.categories };
     }
 
     private static toggleOpenedAction(

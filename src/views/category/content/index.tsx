@@ -2,9 +2,9 @@ import React, { useCallback, useMemo, useState } from "react";
 import { ICategoryContent } from "../../product/constants";
 import { useFiltered, useSizes, useSorted } from "./hooks";
 import { Sort } from "./interfaces";
-import { CategoryContentItem } from "./Item";
-import { CategoryContentSizes } from "./Sizes";
-import { CategoryContentSortButton } from "./Sort";
+import { CategoryContentItem } from "./components/Item";
+import { CategoryContentSizes } from "./components/Sizes";
+import { CategoryContentSortButton } from "./components/Sort";
 
 export const CategoryContent: React.FC<{ contents: ICategoryContent[] }> = (
     props

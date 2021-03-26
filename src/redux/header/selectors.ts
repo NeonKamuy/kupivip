@@ -3,18 +3,18 @@ import { HeaderActionType, IHeaderState } from "./interfaces";
 
 export class HeaderSelectors {
   public static getCategoryList(state: IHeaderState): ICategoryListItem[] {
-    return state[HeaderActionType.loadCategories];
+    return state.categories;
   }
 
   public static getSearchClassName(state: IHeaderState) {
-    return state[HeaderActionType.toggleSearch].className;
+    return state.search.className;
   }
 
   public static getMainHamburgerClassName(state: IHeaderState) {
-    return state[HeaderActionType.toggleMainHamburger].className;
+    return state.mainHamburger.className;
   }
 
   public static getQuestionsClassName(state: IHeaderState) {
-    return state[HeaderActionType.toggleQuestions].className;
+    return state.questions.className;
   }
 }

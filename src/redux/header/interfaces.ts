@@ -22,10 +22,10 @@ export type IHeaderAction =
 
 // State
 export interface IHeaderState {
-    [HeaderActionType.toggleSearch]: IToggleOpenedState;
-    [HeaderActionType.toggleMainHamburger]: IToggleOpenedState;
-    [HeaderActionType.toggleQuestions]: IToggleOpenedState;
-    [HeaderActionType.loadCategories]: ICategoryListItem[];
+    search: IToggleOpenedState;
+    mainHamburger: IToggleOpenedState;
+    questions: IToggleOpenedState;
+    categories: ICategoryListItem[];
 }
 
 // Categories Load Action
