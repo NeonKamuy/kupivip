@@ -5,6 +5,8 @@ import { Sort } from "./interfaces";
 import { CategoryContentItem } from "./components/Item";
 import { CategoryContentSizes } from "./components/Sizes";
 import { CategoryContentSortButton } from "./components/Sort";
+import { CategoryContentSizesMobile } from "./components/SizesMobile";
+import { useDispatch } from "react-redux";
 
 export const CategoryContent: React.FC<{ contents: ICategoryContent[] }> = (
     props
@@ -40,9 +42,16 @@ export const CategoryContent: React.FC<{ contents: ICategoryContent[] }> = (
     const filtered = useFiltered(contents, checkedSizes);
     const sorted = useSorted(filtered, sort);
 
+    const dispatch = useDispatch();
+
     return (
         <div className="category__container">
-            <CategoryContentSortButton onSortChange={handleSortChange} />
+            <div className="category__button__container">
+                <CategoryContentSortButton onSortChange={handleSortChange} />
+                <div className="category__button" id="filter">
+                    <span>Фильтровать</span>
+                </div>
+            </div>
 
             <div className="category__columns">
                 <div className="category__column left">

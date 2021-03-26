@@ -14,6 +14,36 @@
 
         @include mobile {
             justify-content: center;
+            margin: 0 auto;
+        }
+    }
+
+    &__button {
+        flex-basis: 40%;
+        cursor: pointer;
+
+        &__container {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 30px;
+        }
+
+        &#filter {
+            border: 1px solid #191919;
+            padding: 5px 20px;
+            justify-content: center;
+            align-items: center;
+            background: #34495e;
+            color: white;
+            border-radius: 0.25em;
+            height: 2.5em;
+            display: none;
+        }
+
+        @include mobile {
+            &#filter {
+                display: flex;
+            }
         }
     }
 
@@ -31,6 +61,10 @@
                 font-weight: bold;
                 margin-bottom: 20px;
             }
+
+            @include mobile {
+                display: none;
+            }
         }
 
         &.right {
@@ -39,7 +73,7 @@
         }
 
         @include mobile {
-            margin-top: 100px;
+            margin-top: 30px;
             flex-basis: 90% !important;
             justify-content: center;
         }
