@@ -1,6 +1,11 @@
 .category {
     &__size__filters__mob {
-        @extend .sidebar
+        @extend .sidebar;
+
+        ul li {
+            font-size: 1.3em;
+            padding-bottom: 0.2em;
+        }
     }
 
     &__container {
@@ -55,7 +60,7 @@
         display: flex;
 
         &.left {
-            flex-basis: 10%;
+            flex-basis: 15%;
             flex-direction: column;
             height: max-content;
             padding-bottom: 15px;
@@ -74,6 +79,7 @@
         &.right {
             flex-basis: 80%;
             flex-wrap: wrap;
+            justify-content: center;
         }
 
         @include mobile {

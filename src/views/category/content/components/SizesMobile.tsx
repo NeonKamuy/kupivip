@@ -24,31 +24,33 @@ export const CategoryContentSizesMobile: React.FC<{}> = () => {
 
     return (
         <div className={className}>
-            <div className="category__size__filters__mob" id="header">
+            <header>
                 <button className="close" onClick={hide}>
                     <svg viewBox="0 0 20 20">
                         <path d="M18.2 20L0 1.7 1.7 0 20 18 18 20z"></path>
                         <path d="M1.7 20L20 1.7 18 0 0 18.2 1.7 20z"></path>
                     </svg>
                 </button>
-            </div>
+            </header>
 
-            <div>
-                {sizes.map((e) => (
-                    <div>
-                        <input
-                            type="checkbox"
-                            value={e}
-                            id={e}
-                            checked={checkedSizes.has(e)}
-                            onChange={handleSizeCheck}
-                        />
-                        <label style={{ marginLeft: 10 }} htmlFor={e}>
-                            {e}
-                        </label>
-                    </div>
-                ))}
-            </div>
+            <section>
+                <ul>
+                    {sizes.map((e) => (
+                        <li>
+                            <input
+                                type="checkbox"
+                                value={e}
+                                id={e}
+                                checked={checkedSizes.has(e)}
+                                onChange={handleSizeCheck}
+                            />
+                            <label style={{ marginLeft: 10 }} htmlFor={e}>
+                                {e}
+                            </label>
+                        </li>
+                    ))}
+                </ul>
+            </section>
         </div>
     );
 };

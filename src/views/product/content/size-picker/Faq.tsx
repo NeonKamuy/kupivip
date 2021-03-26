@@ -15,14 +15,14 @@ export const ProductSizePickerFAQ: React.FC<{}> = () => {
 
     return (
         <div className={sizePickerFAQClassName}>
-            <div className="product__size_picker__faq" id="header">
+            <header>
                 <button className="close" onClick={closeFAQ}>
                     <svg viewBox="0 0 20 20">
                         <path d="M18.2 20L0 1.7 1.7 0 20 18 18 20z"></path>
                         <path d="M1.7 20L20 1.7 18 0 0 18.2 1.7 20z"></path>
                     </svg>
                 </button>
-            </div>
+            </header>
 
             Здесь будет ваша информация
         </div>
